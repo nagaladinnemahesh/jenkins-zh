@@ -34,10 +34,12 @@ pipeline {
     }
     
     post {
-        always {
+    always {
+        script {
             // Clean up: Remove the Docker image after checking Node.js version
             cleanWs()
             docker.image('my-node-app').remove()
         }
     }
 }
+
